@@ -1,11 +1,12 @@
 nav:
-  home: Home
+  home: Data Science
   about: About
   articles: Writing
   tag: Tag
   category: Category
   projects: Projects
   search: Search
+  drawing: Drawing
 
 icons:
   menu: Menu

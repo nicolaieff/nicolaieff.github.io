@@ -1,9 +1,10 @@
 nav:
-  home: Accueil
-  about: A propos
+  home: Data Science
+  about: À propos
   articles: Archives
   projects: Projets
   search: Rechercher
+  drawing : Dessins
 
 footer:
   copyright: Copyright

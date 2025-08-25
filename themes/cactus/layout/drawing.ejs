@@ -1,0 +1,50 @@
+<!-- <div id="drawing">
+  <ul class="post-list">
+    <% var year = 0 %>
+    <% var change = false %>
+    <% var field_sort = theme.archive.sort_updated ? 'updated' : 'date' %>
+    <% site.posts.sort(field_sort, 'desc').each(function(post) { %>
+      <% 
+        var hasDrawTag = post.tags && post.tags.data.some(function(tag) {
+          return tag.name === 'drawing';
+        });
+      %>
+      <% if (hasDrawTag) { %>
+        <% var itemYear = date(post[field_sort], 'YYYY') %>
+        <% change = year !== itemYear %>
+        <% year = change ? itemYear : year %>
+        <% if (change) { %>
+          <li class="post-year"><h2><%= year %></h2></li>
+        <% } %>
+        <li class="post-item">
+          <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+          <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
+        </li>
+      <% } %>
+    <% }); %>
+  </ul>
+</div> -->
+
+<section id="drawing">
+  <!-- <span class="h1"><%= page.title || 'Dessins' %></span> -->
+  <span class="h1">Fanzine</span>
+  <ul class="post-list">
+    <% 
+      var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date';
+      var drawPosts = site.posts.sort(field_sort, 'desc').filter(function(post) {
+        return post.tags && post.tags.data.some(function(tag) {
+          return tag.name === 'drawing';
+        });
+      });
+    %>
+
+    <% drawPosts.forEach(function(post) { %>
+      <li class="post-item">
+        <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+        <span>
+          <%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %>
+        </span>
+      </li>
+    <% }); %>
+  </ul>
+</section>
